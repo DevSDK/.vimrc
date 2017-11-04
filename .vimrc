@@ -37,7 +37,7 @@ Plugin 'flazz/vim-colorschemes'
 call vundle#end()            " required
 
 colo darkBlue  
-
+set completeopt+=preview
 
 
 " air-line
