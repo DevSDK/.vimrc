@@ -27,17 +27,17 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'neocomplcache'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-fugitive'
-Plugin 'shougo/neocomplete.vim'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
 call vundle#end()            " required
 
 colo darkBlue  
-set completeopt+=preview
+
+
 
 
 " air-line
@@ -54,19 +54,20 @@ if !exists('g:airline_symbols')
 " :Tmuxline airline_visual
 
 
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py' 
+let g:ycm_confirm_extra_conf = 0 
+let g:ycm_key_list_select_completion = ['', ''] 
+let g:ycm_key_list_previous_completion = ['', ''] 
+let g:ycm_autoclose_preview_window_after_completion = 1 
+let g:ycm_show_diagnostics_ui = 0
+
+nnoremap g :YcmCompleter GoTo " 
+nnoremap gg :YcmCompleter GoToImprecise 
+nnoremap d :YcmCompleter GoToDeclaration 
+nnoremap t :YcmCompleter GetType 
+nnoremap p :YcmCompleter GetParent 
+set completeopt-=preview
 
 
-if !exists('g:neocomplete#keyword_patterns')
-		    let g:neocomplete#keyword_patterns = {}
-	endif
-	let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-let g:neocomplete#enable_auto_select = 1
 let g:airline_powerline_fonts = 1
 filetype plugin indent on    " required
-
