@@ -62,11 +62,14 @@ let g:ycm_key_list_previous_completion = ['', '']
 let g:ycm_autoclose_preview_window_after_completion = 1 
 let g:ycm_show_diagnostics_ui = 0
 
-nnoremap g :YcmCompleter GoTo " 
-nnoremap gg :YcmCompleter GoToImprecise 
-nnoremap d :YcmCompleter GoToDeclaration 
-nnoremap t :YcmCompleter GetType 
-nnoremap p :YcmCompleter GetParent 
+let mapleader=","
+nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>g  :YcmCompleter GoTo<CR>
+nnoremap <Leader>gg :YcmCompleter GoToImprecise<CR>
+nnoremap <Leader>t :YcmCompleter GetType<CR>
+nnoremap <leader>p :YcmCompleter GetParent<CR>
+
+
 set completeopt-=preview
 
 
